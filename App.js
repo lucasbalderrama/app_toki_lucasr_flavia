@@ -1,4 +1,5 @@
-// Lucas Randal N°18
+//Flávia Glenda Guimarães Carvalho
+//Lucas Randal Abreu Balderrama
 import 'react-native-gesture-handler';
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
@@ -12,7 +13,7 @@ const Stack = createNativeStackNavigator();
 
 const App = () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
+    <Stack.Navigator initialRouteName="CadastroUsuario" screenOptions={{headerShown: false}}>
       <Stack.Screen name="Login" component={RealizarLogin} />
       <Stack.Screen name="CadastroUsuario" component={CadastroUsuario} />
       <Stack.Screen name="Feed" component={FeedToki} />
