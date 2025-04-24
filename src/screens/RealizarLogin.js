@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
+    w,
     textCadastro: {
         marginTop: 20,
         alignItems: 'center',
