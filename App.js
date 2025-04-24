@@ -1,5 +1,5 @@
-//Flávia Glenda Guimarães Carvalho
-//Lucas Randal Abreu Balderrama
+//Flávia Glenda Guimarães Carvalho N°04
+//Lucas Randal Abreu Balderrama N°18
 import 'react-native-gesture-handler';
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
@@ -8,16 +8,18 @@ import RealizarLogin from './src/screens/RealizarLogin';
 import CadastroUsuario from './src/screens/CadastroUsuario';
 import FeedToki from './src/screens/FeedToki';
 import ChatToki from './src/screens/ChatToki';
+import PerfilUsuario from './src/screens/perfilUsuario';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName="CadastroUsuario" screenOptions={{headerShown: false}}>
+    <Stack.Navigator initialRouteName="PerfilUsuario" screenOptions={{headerShown: false}}>
       <Stack.Screen name="Login" component={RealizarLogin} />
       <Stack.Screen name="CadastroUsuario" component={CadastroUsuario} />
-      <Stack.Screen name="Feed" component={FeedToki} />
-      <Stack.Screen name="Chat" component={ChatToki} />
+      <Stack.Screen name="FeedToki" component={FeedToki} />
+      <Stack.Screen name="ChatToki" component={ChatToki} />
+      <Stack.Screen name="PerfilUsuario" component={PerfilUsuario} />
     </Stack.Navigator>
   </NavigationContainer>
 );
