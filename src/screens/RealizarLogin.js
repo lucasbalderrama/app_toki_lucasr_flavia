@@ -12,18 +12,22 @@ const RealizarLogin = ({ navigation }) => {
         const auth = getAuth(app);
         signInWithEmailAndPassword(auth, email, password)
             .then(() => {
-                navigation.navigate('PaginaPrincipal')
+                navigation.navigate('FeedToki')
             })
             .catch(error => {
                 console.error('Login failed:', error);
             })
     }
+
+    const redirecionarCadastro = () => {
+        navigation.navigate("CadastroUsuario")
+    }
     return (
-        <ImageBackground source={require('../assets/background.jpg')} style={styles.background}>
+        <ImageBackground source={require('../assets/fundo_cadastro.png')} style={styles.background}>
             <View style={styles.container}>
                 <Image
                     style={styles.logo}
-                    source={require('../assets/logo-senai.png')}
+                    source={require('../assets/logo_toki.png')}
                 />
                 <TextInput
                     style={styles.input}
@@ -40,6 +44,13 @@ const RealizarLogin = ({ navigation }) => {
                 />
                 <TouchableOpacity style={styles.button} onPress={tentarLogar}>
                     <Text style={styles.buttonText}>Entrar</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.textCadastro}>
+                <TouchableOpacity onPress={redirecionarCadastro}>
+                    <Text style={styles.linkCadastro}>
+                        Não tem uma conta? <Text style={styles.linkDestacado}>Cadastre-se</Text>
+                    </Text>
                 </TouchableOpacity>
             </View>
         </ImageBackground>
@@ -65,7 +76,7 @@ const styles = StyleSheet.create({
         height: 300,
         resizeMode: 'contain',
         marginBottom: -50,
-        marginTop: 50, 
+        marginTop: 50,
     },
     input: {
         height: 40,
@@ -75,23 +86,54 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         width: 300,
         paddingLeft: 10,
-        borderRadius: 5,
-        zIndex: 10, 
+        borderRadius: 8,
+        zIndex: 10,
+        shadowColor: "#c1c1c1",
+        shadowOffset: {
+            width: 3,
+            height: 3,
+        },
+        shadowOpacity: 0.8,
     },
     button: {
-        backgroundColor: 'red',
+        backgroundColor: '#fff',
         paddingVertical: 10,
         paddingHorizontal: 40,
         borderRadius: 5,
         marginBottom: 50,
         marginTop: 20,
+        shadowColor: "#2c2dd7",
+        shadowOffset: {
+            width: 5,
+            height: 5,
+        },
+        shadowOpacity: 0.8,
+        borderColor: '#2c2dd7',
+        borderWidth: 2,
     },
     buttonText: {
-        color: 'white',
+        color: '#2c2dd7',
         fontSize: 16,
         fontWeight: 'bold',
     },
-});
+    textCadastro: {
+        marginTop: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        width: '100%',
+        height: 30,
+    },
 
+    linkCadastro: {
+        fontSize: 16,
+        color: '#000',
+    },
+
+    linkDestacado: {
+        color: '#2c2dd7',
+        textDecorationLine: 'underline',
+    },
+});
 
 export default RealizarLogin;
